@@ -1,0 +1,22 @@
+modules:
+  jira:adminPage:
+    - key: my-jira-app-hello-world-admin-page
+      resource: main
+      resolver:
+        function: resolver
+      title: my-jira-app
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: static/hello-world/build
+app:
+  runtime:
+    name: nodejs18.x
+  id: ari:cloud:ecosystem::app/23336fef-f08c-42d7-b19b-269b305c59d9
+permissions:
+  scopes:
+    - read:jira-work
+    - write:jira-work
+    - manage:jira-project
